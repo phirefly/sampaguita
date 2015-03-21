@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require "minitest/reporters"
 Minitest::Reporters.use!
 
-class RaphLexer
+class SampaguitaLexer
 
   def tokenize code
     tokens = []
@@ -18,22 +18,22 @@ class RaphLexer
   end
 end
 
-class TestRaphLexer < Minitest::Test
-  describe RaphLexer do
+class TestSampaguitaLexer < Minitest::Test
+  describe SampaguitaLexer do
     before do
-      @lexer = RaphLexer.new
+      @lexer = SampaguitaLexer.new
     end
 
     it 'tokenizes a number' do
-      assert_equal [[:NUMBER, 1]], RaphLexer.new.tokenize("1")
+      assert_equal [[:NUMBER, 1]], SampaguitaLexer.new.tokenize("1")
     end
 
     it 'tokenizes a string' do
-      assert_equal [[:STRING, "something"]], RaphLexer.new.tokenize('"something"')
+      assert_equal [[:STRING, "something"]], SampaguitaLexer.new.tokenize('"something"')
     end
 
     it 'tokenizes an identifier' do
-      assert_equal [[:IDENTIFIER, "name"]], RaphLexer.new.tokenize('name')
+      assert_equal [[:IDENTIFIER, "name"]], SampaguitaLexer.new.tokenize('name')
     end
   end
 end
